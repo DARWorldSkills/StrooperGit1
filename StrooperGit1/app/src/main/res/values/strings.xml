@@ -3,4 +3,6 @@
     <string name="jugar">Jugar</string>
     <string name="puntaje">Puntaje</string>
     <string name="configuracion">Configuración</string>
+    <string name="Mensaje">Tiempo de palabra mayor a 0 y menor a 11</string>
+    <string name="ingreseeltiempo">Ingrese el tiempo</string>
 </resources>

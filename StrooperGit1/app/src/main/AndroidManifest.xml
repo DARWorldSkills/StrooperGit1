@@ -20,7 +20,8 @@
         <activity android:name=".Juego" />
         <activity android:name=".Puntaje" />
         <activity android:name=".Configuracion" />
-        <activity android:name=".Resumen"></activity>
+        <activity android:name=".Resumen" />
+        <activity android:name=".JuegoC"></activity>
     </application>
 
 </manifest>

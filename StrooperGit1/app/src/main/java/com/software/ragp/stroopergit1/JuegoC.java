@@ -1,6 +1,7 @@
 package com.software.ragp.stroopergit1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,31 +13,44 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Juego extends AppCompatActivity implements View.OnClickListener{
+public class JuegoC extends AppCompatActivity implements View.OnClickListener{
     TextView txtaciertos, txtintentos, txtcorrectas, txtincorrectas, txttiempo, txtpalabra;
     Button btnColor1, btnColor2, btnColor3, btnColor4;
-    public static int aciertos, intentos, correctas, incorrectas, tiempo, palabra;
+    public static int aciertos, intentos, correctas, incorrectas, palabra;
     int [] segundos = {0,30};
     List<String> listaPalabras = new ArrayList<>();
     List<Integer> listaColores = new ArrayList<>();
     List<Integer> listatmp = new ArrayList<>();
     int icR, ipR, valorcito, ab=0;
     boolean badera=true;
+    int modo, tiempo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_juego);
+        setContentView(R.layout.activity_juego_c);
         inizialite();
         badera=true;
         ab=0;
-        aciertos =0; intentos=0; correctas=0; incorrectas=0; tiempo=0; palabra=0;
-        segundos = new int[]{0,30};
+        aciertos =0; intentos=0; correctas=0; incorrectas=0; palabra=0;
+        modogame();
+        if (modo==1){
+            segundos = new int[]{0,30};
+        }else {
+            segundos = new int[]{0,0};
+        }
+
         listar();
         randomizar();
         insertarValores();
         txttiempo.setText("Seg: "+segundos[1]);
         prueba();
         gogame();
+    }
+
+    private void modogame() {
+        SharedPreferences valores = getSharedPreferences("juegoC", MODE_PRIVATE);
+        modo = valores.getInt("modo",1);
+        tiempo = valores.getInt("tiempo",3);
     }
 
     private void gogame() {
@@ -53,9 +67,13 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
                         @Override
                         public void run() {
                             segundos[0]++;
-                            segundos[1]--;
+                            if (modo==1) {
+                                segundos[1]--;
+                            }else{
+                                segundos[1]++;
+                            }
                             txttiempo.setText("Seg: "+segundos[1]);
-                            if (segundos[0]==3){
+                            if (segundos[0]==tiempo){
                                 intentos++;
                                 incorrectas++;
                                 randomizar();
@@ -73,8 +91,15 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void endGame() {
-        if ((segundos[1]==0 || incorrectas==3) && ab==0){
-            Intent intent = new Intent(Juego.this,Resumen.class);
+        if ((segundos[1]==0 || incorrectas==3) && ab==0 && modo==1){
+            Intent intent = new Intent(JuegoC.this,Resumen.class);
+            ab=1;
+            badera=false;
+            startActivity(intent);
+            finish();
+        }
+        if ((incorrectas==3) && ab==0 && modo==2){
+            Intent intent = new Intent(JuegoC.this,Resumen.class);
             ab=1;
             badera=false;
             startActivity(intent);
@@ -181,10 +206,10 @@ public class Juego extends AppCompatActivity implements View.OnClickListener{
         if (intentos==0){
             aciertos=100;
         }else {
-            if (intentos>=1 && correctas>=1){
-                double tmp1 = correctas, tmp2= intentos;
-                float tmpP = (float)  (tmp1/ tmp2)*100;
-                aciertos= (int)tmpP;
+            if (intentos>1 && correctas>1){
+                float tmp1 = correctas/intentos ;
+                double tmp2 = tmp1 * 100;
+                aciertos = (int) tmp2;
             }else {
                 aciertos=0;
             }
