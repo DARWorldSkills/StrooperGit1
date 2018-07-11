@@ -1,6 +1,7 @@
 package com.software.ragp.stroopergit1;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -16,7 +17,7 @@ public class Splash extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splash.this, Juego.class);
+                Intent intent = new Intent(Splash.this, Menu.class);
                 startActivity(intent);
                 finish();
             }
