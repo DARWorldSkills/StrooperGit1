@@ -4,11 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logoapp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logoapp"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Menu" />
-        <activity android:name=".Juego"></activity>
+        <activity android:name=".Juego" />
+        <activity android:name=".Puntaje" />
+        <activity android:name=".Configuracion" />
+        <activity android:name=".Resumen"></activity>
     </application>
 
 </manifest>

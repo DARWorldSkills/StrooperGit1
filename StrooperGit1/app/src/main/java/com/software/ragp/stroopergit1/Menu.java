@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Menu extends AppCompatActivity implements View.OnClickListener{
-    Button btnJugar, btnPuntaje, btnConfiguracion;
+    ImageButton btnJugar, btnPuntaje, btnConfiguracion;
     int guardar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +19,14 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void inizialite() {
-        btnJugar = findViewById(R.id.btnJugar);
+       btnJugar = findViewById(R.id.btnJugar);
         btnPuntaje = findViewById(R.id.btnPuntaje);
         btnConfiguracion = findViewById(R.id.btnConfiguracion);
+
+
+        btnJugar.setOnClickListener(this);
+        btnPuntaje.setOnClickListener(this);
+        btnConfiguracion.setOnClickListener(this);
     }
 
     @Override
@@ -34,7 +40,9 @@ public class Menu extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.btnPuntaje:
+                Intent intent1 = new Intent(Menu.this, Puntaje.class);
                 guardar=0;
+                startActivity(intent1);
                 break;
 
             case R.id.btnConfiguracion:
