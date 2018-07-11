@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="261dp"
-        android:layout_height="156dp"
+        android:layout_width="250dp"
+        android:layout_height="129dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -22,12 +22,11 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="404dp"
-        android:layout_height="148dp"
+        android:layout_height="113dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="MissingConstraints">
@@ -36,10 +35,10 @@
             android:id="@+id/txtaciertos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/txtcorrectas"
-            android:layout_marginBottom="47dp"
+            android:layout_below="@+id/txttiempo"
             android:text="Aciertos"
+            android:textColor="@color/azultex"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,8 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/txtaciertos"
-            android:layout_marginEnd="65dp"
+            android:layout_marginEnd="53dp"
             android:text="Intentos"
+            android:textColor="@color/azultex"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,9 +60,10 @@
             android:id="@+id/txtincorrectas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/txtintentos"
-            android:layout_alignTop="@+id/txtcorrectas"
+            android:layout_above="@+id/txttiempo"
+            android:layout_alignEnd="@+id/txtintentos"
             android:text="Correctas"
+            android:textColor="@color/azultex"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtaciertos" />
@@ -71,10 +72,9 @@
             android:id="@+id/txttiempo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="12dp"
+            android:layout_centerInParent="true"
             android:text="Tiempo"
+            android:textColor="@color/azultex"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,10 +85,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginTop="28dp"
+            android:layout_alignTop="@+id/txtincorrectas"
+            android:layout_marginStart="48dp"
             android:text="Incorrectas"
+            android:textColor="@color/azultex"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtintentos" />
@@ -103,11 +103,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
@@ -115,8 +114,8 @@
         android:id="@+id/btnColor1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtpalabra" />
 
@@ -124,8 +123,8 @@
         android:id="@+id/btnColor2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtpalabra" />
 
@@ -133,8 +132,8 @@
         android:id="@+id/btnColor3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnColor1" />
 
@@ -142,8 +141,8 @@
         android:id="@+id/btnColor4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnColor2" />
 </android.support.constraint.ConstraintLayout>
