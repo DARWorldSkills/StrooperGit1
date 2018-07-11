@@ -17,7 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Menu" />
-        <activity android:name=".Juego"></activity>
+        <activity android:name=".Juego" />
+        <activity android:name=".Puntaje" />
+        <activity android:name=".Configuracion" />
+        <activity android:name=".Resumen"></activity>
     </application>
 
 </manifest>
